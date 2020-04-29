@@ -1,6 +1,3 @@
-# Live Preview:
-## https://ng-boilerplate.mdbootstrap.com/
-
 # Technologies used
 
 * Angular 8
