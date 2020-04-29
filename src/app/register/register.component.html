@@ -1,24 +1,39 @@
 ﻿<h2>Register</h2>
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
-        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-            <div *ngIf="f.firstName.errors.required">First Name is required</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="lastName">Last Name</label>
-        <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
-        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-        </div>
-    </div>
-    <div class="form-group">
         <label for="username">Username</label>
         <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
             <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email not valid</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+            <div *ngIf="f.phone.errors.required">Phone is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="skillsets">Skillsets eg. Python, Angular, React</label>
+        <input type="text" formControlName="skillsets" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.skillsets.errors }" />
+        <div *ngIf="submitted && f.skillsets.errors" class="invalid-feedback">
+            <div *ngIf="f.skillsets.errors.required">Skillsets is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="hobby">Hobby</label>
+        <input type="text" formControlName="hobby" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.hobby.errors }" />
+        <div *ngIf="submitted && f.hobby.errors" class="invalid-feedback">
+            <div *ngIf="f.hobby.errors.required">Hobby is required</div>
         </div>
     </div>
     <div class="form-group">
