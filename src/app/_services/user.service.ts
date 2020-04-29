@@ -16,8 +16,8 @@ export class UserService {
     return this.http.post(`${config.apiUrl}/auth/register`, user);
   }
 
-  delete(id: number) {
-    return this.http.delete(`${config.apiUrl}/users/${id}`);
+  delete(email: string) {
+    return this.http.delete(`${config.apiUrl}/auth/delete/${email}`);
   }
 
   update(user: User) {

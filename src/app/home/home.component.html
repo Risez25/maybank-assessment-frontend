@@ -41,7 +41,13 @@
         >
           Update
         </button>
-        <button (click)="open()" type="button" class="btn btn-danger">
+        <button
+          (click)="
+            openDeleteModal(user.value.username, user.value.email, modaldelete)
+          "
+          type="button"
+          class="btn btn-danger"
+        >
           Delete
         </button>
       </td>
@@ -136,4 +142,41 @@
       </div>
     </div>
   </form>
+</ng-template>
+<ng-template #modaldelete let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      Are you sure want to delete user {{ deleteUsername }}
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <button
+        [disabled]="loading"
+        class="btn btn-light"
+        (click)="modal.close('cancel')"
+      >
+        Cancel
+      </button>
+      <button
+        [disabled]="loading"
+        class="btn btn-danger"
+        (click)="deleteUser()"
+      >
+        <span
+          *ngIf="loading"
+          class="spinner-border spinner-border-sm mr-1"
+        ></span>
+        Delete
+      </button>
+    </div>
+  </div>
 </ng-template>

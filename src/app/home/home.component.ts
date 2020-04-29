@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
   modalUser: User;
   loading = false;
   submitted = false;
+  deleteUsername: string;
+  deleteEmail: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -65,11 +67,37 @@ export class HomeComponent implements OnInit {
     this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
   }
 
-  deleteUser(id: number) {
+  openDeleteModal(username: string, email: string, modaldelete) {
+    this.deleteUsername = username;
+    this.deleteEmail = email;
+    this.modalService.open(modaldelete, {
+      ariaLabelledBy: "modal-basic-title",
+    });
+  }
+
+  deleteUser() {
+    console.log("test");
+
+    this.loading = true;
     this.userService
-      .delete(id)
+      .delete(this.deleteEmail)
       .pipe(first())
-      .subscribe(() => this.loadAllUsers());
+      .subscribe(
+        (data) => {
+          this.loading = false;
+          this.alertService.success(
+            `User has been deleted ${this.deleteUsername}`,
+            true
+          );
+          this.loadAllUsers();
+          this.modalService.dismissAll();
+        },
+        (error) => {
+          this.alertService.error(error);
+          this.loading = false;
+          this.modalService.dismissAll();
+        }
+      );
   }
 
   onSubmit() {
