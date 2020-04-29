@@ -1,3 +1,6 @@
+# Live Preview:
+## https://maybank-assessment-frontend.herokuapp.com/
+
 # Technologies used
 
 * Angular 8
