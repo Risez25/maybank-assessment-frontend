@@ -12,7 +12,7 @@ export class UserService {
     }
 
     register(user: User) {
-        return this.http.post(`${config.apiUrl}/users/register`, user);
+        return this.http.post(`${config.apiUrl}/auth/register`, user);
     }
 
     delete(id: number) {
